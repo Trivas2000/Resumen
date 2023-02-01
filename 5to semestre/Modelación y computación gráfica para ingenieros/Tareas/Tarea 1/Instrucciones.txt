@@ -1,0 +1,12 @@
+¡Hola! El código debería funcionar corriendo el archivo Tarea 1 Tomás Rivas, como parte del bonus use una función createCircle con 
+el centro blanco para que se vean mejor las damas y también genere funcionalidades con las teclas “A” y “B” incluyendo una versión 
+diferente de las damas y el tablero:
+
+A: Apretando esta tecla generamos solo el tablero para una visión más clara.
+
+B: Con esta tecla cambiamos el shader y los colores a una temática de playa (Siempre y cuando no este activa “A”)
+
+Alumno: Tomás Rivas
+
+Rut: 20.592.350-0
+

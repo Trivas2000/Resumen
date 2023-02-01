@@ -1,0 +1,4 @@
+Flecha izquierda retroceder
+Flecha derecha avanzar
+
+Archivo dentro de carpeta segunda solución; nombre del archivo "Ejercicio 4 Tomas Rivas"

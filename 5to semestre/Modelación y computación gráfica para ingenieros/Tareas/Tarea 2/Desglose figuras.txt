@@ -1,0 +1,58 @@
+Buenas, explicare aquí con más detalle las figuras y donde se usaron ya que me parece que se entiende 
+de mejor manera que solo comentando el código.
+
+NOMBRE: Tomás Rivas 
+Rut: 20.592.350-0
+Modelo usado: Carro 13
+Cantidad de figuras: 39
+
+##CUBO AZUL (Un cubo azul)##
+Se usó principalmente para crear el cuerpo y el contorno principal del auto:
+
+Bordes maleta: 3 Figuras
+Cuerpo principal: 1 Figura
+Parte superior: 2 Figuras
+Cubos azules totales=6
+
+##CUBO NEGRO (Un cubo negro)## 
+Esta principalmente en las ventanas aunque también en detalles menores como una parte de la patente.
+Patente: 1 Figura
+Ventanas: 4 Figuras
+Cubo negros totales=5
+
+##CUBO ROJO (Un cubo rojo)## 
+Compone principalmente las luces laterales del auto y los focos de las luces traseras.
+Luces traseras: 2 Figuras
+Luces laterales: 3 Figuras
+Cubo rojo totales=5
+
+##FIGLLANTA (Un cilindro negro)##
+Se usó para modelar las llantas de las ruedas. Hay 5 ruedas (Las 4 que sostienen el auto y 1 en la maleta).
+LLantas en ruedas: 5 Figuras
+Figllanta totales=5
+
+##FIGDISCO (Un cilindro gris muy claro)##
+Compone el interior de las ruedas, y se aprovechó para hacer los focos delanteros.
+Discos en ruedas: 5 Figuras
+Discos en focos: 2 Figuras
+Figdisco totales=7
+
+
+##CUBO GRIS CLARO(Un cubo gris claro)##
+Esta principalmente en detalles como la patente o los marcos de los focos traseros.
+Marcos focos: 2 Figuras
+Patente: 1 Figura
+Cubo gris claro totales=3
+
+
+##CUBO GRIS OSCURO(Un cubo gris oscuro)##
+Se usa para modelar grandes trozos de metal en el parachoques y la patente.
+Parte trasera: 2 Figuras
+Patente: 1 Figura
+Cubo gris oscuro totales=3
+
+##CUBO NARANJA (Un cubo naranja)##  
+Se usa para modelar 2 focos en la parte delantera y el logo de Chevrolet.
+Focos: 2 Figuras
+Chevrolet: 3 Figuras
+Cubo naranja totales=5

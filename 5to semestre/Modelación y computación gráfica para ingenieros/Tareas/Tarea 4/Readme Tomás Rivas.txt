@@ -1,0 +1,2 @@
+Hola! Para el bonus opte por hacer el ciclo de día/noche y una funcionalidad que apage y prenda 
+las luces al apretar el boton enter. Dentro de el codigo se encuentran documentado como #BONUS# estas partes.
