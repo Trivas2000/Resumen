@@ -1,0 +1,64 @@
+Sistema operativo utilizado
+Linux debian11mate 5.10.0-12-amd64 #1 SMP Debian 5.10.103-1 (2022-03-07) x86_64 GNU/Linux
+==== run-san ====
+gcc -g -DSAN=1 -fsanitize=address -fsanitize=undefined -DSANITIZE -Wall -Werror -std=c18  cmp-dir.c -lm -o cmp-dir.bin-san
+Test de igualdad
+./cmp-dir.bin-san dir1/iguales dir2/iguales |& tee res.out
+Es subconjunto
+Test aprobado
+----------------------------------------------
+Test de igualdad con muchos directorios
+./cmp-dir.bin-san dir1/igualesB dir2/igualesB |& tee res.out
+Es subconjunto
+Test aprobado
+----------------------------------------------
+Test de contenidos distintos
+./cmp-dir.bin-san dir1/contenidos-distintos dir2/contenidos-distintos |& tee res.out
+Contenidos de dir1/contenidos-distintos/cardinales.txt y dir2/contenidos-distintos/cardinales.txt difieren
+Test aprobado
+----------------------------------------------
+Test de tamanos distintos
+./cmp-dir.bin-san dir1/tamanos-distintos dir2/tamanos-distintos |& tee res.out
+dir1/tamanos-distintos/cardinales.txt y dir2/tamanos-distintos/cardinales.txt son de distinto tamanno
+Test aprobado
+----------------------------------------------
+Test de igualdad de archivos binarios grandes
+cp cmp-dir.bin-san cmp-dir.bin-copy
+./cmp-dir.bin-san cmp-dir.bin-san cmp-dir.bin-copy |& tee res.out
+Es subconjunto
+Test aprobado
+----------------------------------------------
+Test de contenido distinto de archivos binarios grandes
+(difieren en el ultimo byte)
+cp cmp-dir.bin-copy cmp-dir.bin-copy2
+echo a >> cmp-dir.bin-copy
+echo b >> cmp-dir.bin-copy2
+./cmp-dir.bin-san cmp-dir.bin-copy cmp-dir.bin-copy2 |& tee res.out
+Contenidos de cmp-dir.bin-copy y cmp-dir.bin-copy2 difieren
+Test aprobado
+rm cmp-dir.bin-copy cmp-dir.bin-copy2
+----------------------------------------------
+Test de no existencia del 2do. archivo
+./cmp-dir.bin-san dir1/noexiste2 dir2/noexiste2 |& tee res.out
+dir1/noexiste2/hola.txt si existe, dir2/noexiste2/hola.txt no existe
+Test aprobado
+----------------------------------------------
+Test de no existencia del 1er. directorio o archivo
+./cmp-dir.bin-san dir1/noexiste1 dir2/noexiste1 |& tee res.out
+dir1/noexiste1 no existe
+Test aprobado
+----------------------------------------------
+Test de inconsistencia de directorios 1
+./cmp-dir.bin-san dir1/dir-inconsistente dir2/dir-inconsistente |& tee res.out
+dir1/dir-inconsistente es directorio, dir2/dir-inconsistente no es directorio
+Test aprobado
+----------------------------------------------
+Test de inconsistencia de directorios 2
+./cmp-dir.bin-san dir1/dir-inconsistente2 dir2/dir-inconsistente2 |& tee res.out
+dir1/dir-inconsistente2 no es directorio, dir2/dir-inconsistente2 si es directorio
+Test aprobado
+----------------------------------------------
+Test de error: error de lectura en 2do. archivo
+chmod a-rwx dir2/error-arch/sin-permiso
+./cmp-dir.bin-san dir1/error-arch dir2/error-arch
+Codigo de retorno es 0, debe ser distinto de 0

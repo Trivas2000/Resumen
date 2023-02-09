@@ -1,0 +1,90 @@
+Sistema operativo utilizado
+Linux debian11mate 5.10.0-12-amd64 #1 SMP Debian 5.10.103-1 (2022-03-07) x86_64 GNU/Linux
+==== make sort-c-esp.run ====
+/opt/riscv/bin/riscv64-unknown-elf-gcc -g -c -Wall -pedantic -std=c2x -march=rv32im -mabi=ilp32 sort-c-esp.c -o sort-c-esp.o
+/opt/riscv/bin/riscv64-unknown-elf-gcc -g -c -Wall -pedantic -std=c2x -march=rv32im -mabi=ilp32 test-sort.c -o test-sort.o
+/opt/riscv/bin/riscv64-unknown-elf-gcc -Wall -pedantic -std=c2x -march=rv32im -mabi=ilp32 -g sort-c-esp.o test-sort.o  -o sort-c-esp
+qemu-riscv32 sort-c-esp
+Un arreglo bien ordenado: "a" "a"
+Resultado: "a" "a"
+Otro arreglo bien ordenado: "a" "a a"
+Resultado: "a" "a a"
+Un arreglo desordenado: "a a" "a"
+Resultado: "a" "a a"
+Otro arreglo desordenado: "abcd efgh" "abcdefgh"
+Resultado: "abcdefgh" "abcd efgh"
+Otro arreglo desordenado: "abc d ef ghi jklm" "abcd efghijklm"
+Resultado: "abcd efghijklm" "abc d ef ghi jklm"
+Arreglo con 3 strings desordenados: "ab bcd e" "a", "a a"
+Resultado: "a" "a a" "ab bcd e"
+Ahora un arreglo de 10 strings
+El arreglo desordenado es:
+--------------------------
+ab cde fghi
+abc def gh ij kl
+yz
+mno q r s t v wxy
+d e f g h i j k l m
+l m
+z y x w
+j k l m n o p q r
+s t u v w 
+ c d e f g h 
+
+El arreglo ordenado es:
+-----------------------
+yz
+l m
+ab cde fghi
+z y x w
+abc def gh ij kl
+s t u v w 
+mno q r s t v wxy
+ c d e f g h 
+j k l m n o p q r
+d e f g h i j k l m
+Felicitaciones: test de prueba aprobado
+==== make sort-rv-esp.run ====
+/opt/riscv/bin/riscv64-unknown-elf-gcc -c -Wall -pedantic -std=c2x -march=rv32im -mabi=ilp32 sort-rv-esp.s -o sort-rv-esp.o
+/opt/riscv/bin/riscv64-unknown-elf-gcc -g -c -Wall -pedantic -std=c2x -march=rv32im -mabi=ilp32 test-sort.c -o test-sort.o
+/opt/riscv/bin/riscv64-unknown-elf-gcc -Wall -pedantic -std=c2x -march=rv32im -mabi=ilp32 -g sort-rv-esp.o test-sort.o  -o sort-rv-esp
+qemu-riscv32 sort-rv-esp
+Un arreglo bien ordenado: "a" "a"
+Resultado: "a" "a"
+Otro arreglo bien ordenado: "a" "a a"
+Resultado: "a" "a a"
+Un arreglo desordenado: "a a" "a"
+Resultado: "a" "a a"
+Otro arreglo desordenado: "abcd efgh" "abcdefgh"
+Resultado: "abcdefgh" "abcd efgh"
+Otro arreglo desordenado: "abc d ef ghi jklm" "abcd efghijklm"
+Resultado: "abcd efghijklm" "abc d ef ghi jklm"
+Arreglo con 3 strings desordenados: "ab bcd e" "a", "a a"
+Resultado: "a" "a a" "ab bcd e"
+Ahora un arreglo de 10 strings
+El arreglo desordenado es:
+--------------------------
+ab cde fghi
+abc def gh ij kl
+yz
+mno q r s t v wxy
+d e f g h i j k l m
+l m
+z y x w
+j k l m n o p q r
+s t u v w 
+ c d e f g h 
+
+El arreglo ordenado es:
+-----------------------
+yz
+l m
+ab cde fghi
+z y x w
+abc def gh ij kl
+s t u v w 
+mno q r s t v wxy
+ c d e f g h 
+j k l m n o p q r
+d e f g h i j k l m
+Felicitaciones: test de prueba aprobado

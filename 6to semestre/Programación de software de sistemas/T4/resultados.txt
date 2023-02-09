@@ -1,0 +1,68 @@
+Sistema operativo utilizado
+Linux debian11mate 5.10.0-12-amd64 #1 SMP Debian 5.10.103-1 (2022-03-07) x86_64 GNU/Linux
+==== run-san ====
+gcc -g -DSAN=1 -fsanitize=address -fsanitize=undefined -DSANITIZE -Wall -Werror -std=c18  rotar.c -lm -o rotar.bin-san
+cp noms-orig.txt noms.txt
+Test: sin movimientos
+./rotar.bin-san noms.txt 3
+diff noms.txt noms-orig.txt
+Sin movimientos: test aprobado
+Test: 2 movimientos
+./rotar.bin-san noms.txt 0 5
+diff noms.txt noms-ref2.txt
+2 movimientos: test aprobado
+Test: 4 movimientos
+cp noms-orig.txt noms.txt
+./rotar.bin-san noms.txt 2 5 0 4
+diff noms.txt noms-ref4.txt
+4 movimientos: test aprobado
+Test: 6 movimientos
+cp noms10-orig.txt noms10.txt
+./rotar.bin-san noms10.txt 2 1 7 9 0 3
+diff noms10.txt noms10-ref6.txt
+6 movimientos: test aprobado
+Felicitaciones: todos los tests aprobados
+==== run-g ====
+gcc -g -Wall -Werror -std=c18  rotar.c -lm -o rotar.bin-g
+cp noms-orig.txt noms.txt
+Test: sin movimientos
+./rotar.bin-g noms.txt 3
+diff noms.txt noms-orig.txt
+Sin movimientos: test aprobado
+Test: 2 movimientos
+./rotar.bin-g noms.txt 0 5
+diff noms.txt noms-ref2.txt
+2 movimientos: test aprobado
+Test: 4 movimientos
+cp noms-orig.txt noms.txt
+./rotar.bin-g noms.txt 2 5 0 4
+diff noms.txt noms-ref4.txt
+4 movimientos: test aprobado
+Test: 6 movimientos
+cp noms10-orig.txt noms10.txt
+./rotar.bin-g noms10.txt 2 1 7 9 0 3
+diff noms10.txt noms10-ref6.txt
+6 movimientos: test aprobado
+Felicitaciones: todos los tests aprobados
+==== run ====
+gcc -O -DOPT=1 -Wall -Werror -std=c18  rotar.c -lm -o rotar.bin
+cp noms-orig.txt noms.txt
+Test: sin movimientos
+./rotar.bin noms.txt 3
+diff noms.txt noms-orig.txt
+Sin movimientos: test aprobado
+Test: 2 movimientos
+./rotar.bin noms.txt 0 5
+diff noms.txt noms-ref2.txt
+2 movimientos: test aprobado
+Test: 4 movimientos
+cp noms-orig.txt noms.txt
+./rotar.bin noms.txt 2 5 0 4
+diff noms.txt noms-ref4.txt
+4 movimientos: test aprobado
+Test: 6 movimientos
+cp noms10-orig.txt noms10.txt
+./rotar.bin noms10.txt 2 1 7 9 0 3
+diff noms10.txt noms10-ref6.txt
+6 movimientos: test aprobado
+Felicitaciones: todos los tests aprobados

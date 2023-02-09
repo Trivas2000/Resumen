@@ -1,0 +1,39 @@
+Sistema operativo utilizado
+Linux debian11mate 5.10.0-12-amd64 #1 SMP Debian 5.10.103-1 (2022-03-07) x86_64 GNU/Linux
+==== run ====
+gcc -O -DOPT=1 -Wall -Werror -std=c2x -Wno-unused-function  borrar-bits.c test-borrar-bits.c borrar-bits.h -lm -o borrar-bits.bin
+Midiendo cuanto demora la solucion del profesor
+rm -f tiempo-ref.txt
+chmod +x prof.ref
+./prof.ref ref > /dev/null
+Tiempo de referencia =  1935
+Verificando y comparando con su solucion
+./borrar-bits.bin `cat tiempo-ref.txt`
+Tests unitarios
+Aprobado
+Test exhaustivo con 9600000 invocaciones de borrar_bits
+Reservando 146 MB para los benchmarks
+Aprobado
+Corriendo benchmark
+Tiempo de cpu usado por la version del profesor: 1935 milisegundos
+Tiempo para la version sin operadores de bits (estimado): 130860 milisegundos
+Tiempo de cpu usado por su version: 1524 milisegundos
+Porcentaje de sobrecosto: -21 %
+Aprobado
+Felicitaciones!  Todos los tests aprobados.
+==== run-g ====
+gcc -g -Wall -Werror -std=c2x -Wno-unused-function  borrar-bits.c test-borrar-bits.c borrar-bits.h -lm -o borrar-bits.bin-g
+./borrar-bits.bin-g
+Tests unitarios
+Aprobado
+Test exhaustivo con 9600000 invocaciones de borrar_bits
+Aprobado
+Felicitaciones!  Todos los tests aprobados.
+==== run-san ====
+gcc -g -DSAN=1 -fsanitize=address -fsanitize=undefined -DSANITIZE -Wall -Werror -std=c2x -Wno-unused-function  borrar-bits.c test-borrar-bits.c borrar-bits.h -lm -o borrar-bits.bin-san
+./borrar-bits.bin-san
+Tests unitarios
+Aprobado
+Test exhaustivo con 9600000 invocaciones de borrar_bits
+Aprobado
+Felicitaciones!  Todos los tests aprobados.

@@ -1,0 +1,8 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "borrar-bits.h"
+
+uint borrar_bits(uint x, uint pat, int len) {
+  ... programe aca la funcion solicitada ...
+}
